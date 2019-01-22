@@ -1,6 +1,6 @@
-require 'slack-stash/daemon'
+require 'slack-stash'
 
-desc 'Run the daemon'
+desc 'Run the application'
 task :run do
- loop { SlackStash::Daemon.perform }
+ loop { SlackStash::App.run }
 end

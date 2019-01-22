@@ -12,4 +12,7 @@ Gem::Specification.new do |s|
   s.files       = []
   s.homepage    = 'http://rubygems.org/gems/slack-stash'
   s.license     = 'MIT'
+  s.add_runtime_dependency 'base64'
+  s.add_runtime_dependency 'json'
+  s.add_runtime_dependency 'yaml'
 end
