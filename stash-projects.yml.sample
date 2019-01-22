@@ -1,0 +1,7 @@
+projects:
+  PROJ:
+    - example-repo1
+    - example-repo2
+    - example-repo3
+  PROJ2:
+    - example2-repo1

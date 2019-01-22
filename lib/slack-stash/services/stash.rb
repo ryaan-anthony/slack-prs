@@ -1,14 +1,7 @@
 module SlackStash
   class Stash
     def initialize
-      @config = Config.new('stash')
-    end
-
-    # TODO: remove
-    def repos(overrides = {})
-      path_options = { path: 'rest/api/latest/repos' }
-      request = default_options.merge(overrides).merge(path_options)
-      client.get(request)
+      @config = Config.new('secrets.yml', 'stash')
     end
 
     def pull_requests(project, repo, overrides = {})
