@@ -10,9 +10,9 @@ gem install slack-stash
 
 * Configure
 
-1. Copy `mongoid.yml.sample` to `mongoid.yml` and configure your database.
-2. Copy `secrets.yml.sample` to `secrets.yml` and add your username/passwords.
-3. Copy `stash-projects.yml.sample` to `stash-projects.yml` and add your projects.
+1. Rename `mv mongoid.yml{.sample,}` and configure your database.
+2. Rename `mv secrets.yml{.sample,}` and add your username/passwords.
+3. Rename `mv stash-projects.yml{.sample,}` and add your projects.
 4. Setup your projects: 
 
 ```
