@@ -1,7 +1,7 @@
 module SlackStash
   class Stash
     def initialize
-      @config = Config.new('stash')
+      @config = Config.new('secrets.yml', 'stash')
     end
 
     def pull_requests(project, repo, overrides = {})

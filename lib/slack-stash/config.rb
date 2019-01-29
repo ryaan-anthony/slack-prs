@@ -1,13 +1,12 @@
 module SlackStash
   class Config
-    FILENAME = 'secrets.yml'.freeze
-
-    def initialize(node)
+    def initialize(filename, node)
+      @filename = filename
       @node = node
     end
 
     def data
-      @data ||= YAML::load_file(FILENAME)[@node]
+      @data ||= YAML::load_file(@filename)[@node]
     end
 
     def method_missing(method, *args)
