@@ -1,6 +1,4 @@
-require 'base64'
 require 'excon'
-require 'json'
 require 'mongoid'
 require 'pry'
 require 'yaml'
