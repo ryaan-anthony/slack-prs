@@ -43,7 +43,7 @@ end
 def render(pull_request)
  days = ((DateTime.now.utc - pull_request.updated_date.utc)/60/60/24).to_i
  #puts "<#{pr.link}|#{URI::encode(pr.title)}> author: #{pr.author.name} #{days > 0 ? "(#{days} days old)" : nil}"
- puts "#{pull_request.link} #{days > 0 ? "(#{days} days old)" : nil}"
+ puts "#{pull_request.link} #{days > 0 ? "(#{days} days old)" : nil} #{pull_request.conflict? ? '[CONFLICT]' : nil}"
 end
 
 desc 'Add a repo'
