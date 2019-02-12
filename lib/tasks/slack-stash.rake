@@ -1,11 +1,5 @@
 require 'slack-stash'
 
-desc 'Run the application'
-task :refresh do
- SlackStash::RefreshPullRequests.new.perform
- puts :finished
-end
-
 desc 'Run the console'
 task :console do
  binding.pry
@@ -13,8 +7,14 @@ end
 
 desc 'Generate report'
 task :report do
+ Rake::Task[:refresh].execute
  Rake::Task[:pending_review].execute
  Rake::Task[:approved].execute
+end
+
+desc 'Refresh the pull requests'
+task :refresh do
+ SlackStash::RefreshPullRequests.new.perform
 end
 
 desc 'Pull requests that need reviews'
@@ -33,7 +33,7 @@ task :approved do
  end
 end
 
-desc 'Pull requests that are approved'
+desc 'List all repos'
 task :repos do
  SlackStash::Repo.each do |repo|
   puts repo.name

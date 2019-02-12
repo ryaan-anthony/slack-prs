@@ -19,12 +19,6 @@ gem install slack-stash
 bundle exec rake setup
 ```
 
-* Refresh pull request data
-
-```
-bundle exec rake refresh
-```
-
 * Generate report 
 
 ```
