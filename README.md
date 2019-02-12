@@ -19,7 +19,7 @@ gem install slack-stash
 bundle exec rake setup
 ```
 
-* Generate report 
+5. Generate report 
 
 ```
 bundle exec rake report
