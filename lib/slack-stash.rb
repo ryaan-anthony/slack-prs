@@ -4,7 +4,6 @@ require 'pry'
 require 'yaml'
 
 module SlackStash
-  autoload :App, 'slack-stash/app'
   autoload :Client, 'slack-stash/client'
   autoload :Config, 'slack-stash/config'
   autoload :PullRequest, 'slack-stash/models/pull_request'

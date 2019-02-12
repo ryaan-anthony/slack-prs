@@ -3,6 +3,7 @@ module SlackStash
     # Update all open pull requests
     def perform
       Repo.each do |repo|
+        repo.pull_requests.destroy_all
         pull_requests(repo.project, repo.name).each do |response|
           pull_request = repo.pull_request(response['id'])
           merge_result = response['properties']['mergeResult']
@@ -23,8 +24,8 @@ module SlackStash
       end
     end
 
-    def user_id(entity)
-      User.find_or_create_by!(name: entity['user']['name']).id
+    def user_id(user_data)
+      User.find_or_create_by!(name: user_data['user']['name']).id
     end
 
     def to_datetime(timestamp)

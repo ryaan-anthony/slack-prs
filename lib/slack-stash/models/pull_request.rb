@@ -14,6 +14,13 @@ module SlackStash
     field :reviewer_ids, type: Array
     field :participant_ids, type: Array
     embedded_in :repo, inverse_of: :pull_requests
+    scope :pending_review, -> { where(open: true, approved: false, :to_ref.nin => %w[staging master]) }
+    scope :approved, -> { where(open: true, approved: true, :to_ref.nin => %w[staging master]) }
+    index({ open: 1, approved: 1, to_ref: 1 }, { background: true })
+
+    def link
+      "https://stash.tools.weblinc.com/projects/#{repo.project}/repos/#{repo.name}/pull-requests/#{number}"
+    end
 
     def author
       User.find(author_id)
