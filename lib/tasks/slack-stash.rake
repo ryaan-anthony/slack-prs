@@ -10,6 +10,7 @@ task :report do
  Rake::Task[:refresh].execute
  Rake::Task[:pending_review].execute
  Rake::Task[:approved].execute
+ Rake::Task[:rubber_stamp].execute
 end
 
 desc 'Refresh the pull requests'
@@ -30,6 +31,14 @@ task :approved do
  puts :approved
  SlackStash::Repo.each do |repo|
   repo.pull_requests.approved.each { |pr| render pr }
+ end
+end
+
+desc 'Pull requests that need a rubber stamp'
+task :rubber_stamp do
+ puts :rubber_stamp
+ SlackStash::Repo.each do |repo|
+  repo.pull_requests.rubber_stamp.each { |pr| render pr }
  end
 end
 
